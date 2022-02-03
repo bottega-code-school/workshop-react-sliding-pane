@@ -2,7 +2,6 @@ import * as React from "react";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import { VscThreeBars } from "react-icons/vsc";
 import { range, orderBy } from "lodash";
-import SongPane from "./SongPane";
 
 export type SongType = {
   id: number;
@@ -15,10 +14,6 @@ export type SongType = {
 };
 export default function DndPlaylist({ playlistData }) {
   const [playlist, setPlaylist] = React.useState<SongType[]>(playlistData);
-  const [detailsPane, setDetailsPane] = React.useState<{
-    visible: boolean;
-    data?: SongType;
-  }>({ visible: false });
 
   const listRenderer = orderBy(playlist, "position").map((item) => (
     <Draggable
@@ -38,12 +33,7 @@ export default function DndPlaylist({ playlistData }) {
           <div>
             <img src={item.thumb} width="100%" />
           </div>
-          <a
-            className="list-container__item--title"
-            onClick={() => setDetailsPane({ visible: true, data: item })}
-          >
-            {item.title}
-          </a>
+          <div className="list-container__item--title">{item.title}</div>
           <div className="metadata">{item.artist}</div>
           <div className="metadata">{item.released}</div>
         </div>
@@ -91,12 +81,6 @@ export default function DndPlaylist({ playlistData }) {
 
   return (
     <div className="list-container">
-      <SongPane
-        visible={detailsPane.visible}
-        data={detailsPane.data}
-        closePane={() => setDetailsPane({ visible: false })}
-      />
-
       <DragDropContext onDragEnd={onDragEnd}>
         <Droppable droppableId={"PLAYLIST"}>
           {(provided) => (

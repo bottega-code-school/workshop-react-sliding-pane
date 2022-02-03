@@ -5,13 +5,12 @@ import { useHistory, useParams } from "react-router";
 import { NavLink } from "react-router-dom";
 import Select from "react-select";
 
-import DndPlaylist, { SongType } from "./DndPlaylist";
+import DndPlaylist from "./DndPlaylist";
 import GridPlaylist from "./GridPlaylist";
 import Layout from "./Layout";
 
 import data from "../data";
 import { orderBy } from "lodash";
-import SongPane from "./SongPane";
 
 type ViewType = "row" | "grid";
 
