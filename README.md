@@ -1,10 +1,10 @@
-# How to build a dynamic list component in React
+# How to Implement an Animated Sliding Pane in React
 
-> Learn how to create a re-usable list component in React that allows for rendering grid and list based data along with filtering data.
+> In this guide you will learn how to build out an animated sliding pane in React, including the ability to manage the pane's visibility state, passing data to the pane and customizing how the pane is styled.
 
 ## Objectives:
 
-- Model a React component that can take a collection of child components.
-- Build React state behavior that allows for toggling between different layout types.
-- Implement click handlers that auto filter data
-- Configure a select field in React to communicate with a component’s local state
+- Install the React Sliding Pane library
+- Utilize React hooks to manage the pane’s visibility
+- Implement CSS overrides to customize the styles for the sliding pane
+- Configure the React Sliding Pane size to dynamically change based on screen size
